@@ -2,8 +2,8 @@ function createEventFromArchEmail() {
   // reads schedule emails from Tom and creates a calendar event for it.
   // maybe it creates an .ics in drive to open? 
 
-  /*
-    TODOs
+  /* testing
+    TODOs 
     * trigger on incomming mail - maybe
     * check to see if the email meets the criteria - separate function? 
     * create event - definitely separate function for reusability
