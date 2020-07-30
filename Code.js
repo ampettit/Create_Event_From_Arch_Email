@@ -4,6 +4,10 @@ function createEventFromArchEmail() {
   
   var threads = GmailApp.getInboxThreads();
   for (var i = 0; i < threads.length; i++) {
+    // add code here to ensure the correct email has been selected.  
+    // maybe no "re", from Tom, contains "Ref /SK"
+    // read contents and make sure it matches a pattern 
+    // to make sure the right email has been selected
     if (threads[i].getFirstMessageSubject().indexOf("Schedule") > -1) {
       Logger.log(threads[i].getFirstMessageSubject());
     }
