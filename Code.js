@@ -1,6 +1,21 @@
 function createEventFromArchEmail() {
   // reads schedule emails from Tom and creates a calendar event for it.
   // maybe it creates an .ics in drive to open? 
+
+  /*
+    TODOs
+    * trigger on incomming mail - maybe
+    * check to see if the email meets the criteria - separate function? 
+    * create event - definitely separate function for reusability
+    * * parse the information with split and use a multiline as a separator
+    * * validate information with a switch case - maybe >> unsure if the information
+        is always in the same place every time  
+    * create .ics and save to drive - maybe haven't decided how yet
+    * create or update log sheet based on mail ID to prevent duplicates
+    * check log before run to ensure no duplicates
+    * have some sort of dumping system to prevent long lists?  
+    * move to arch on completion? 
+  */
   
   var threads = GmailApp.getInboxThreads();
   for (var i = 0; i < threads.length; i++) {
