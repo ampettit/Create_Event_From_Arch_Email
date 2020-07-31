@@ -17,25 +17,35 @@ function createEventFromArchEmail() {
     * move to arch on completion? 
   */
   
-  var threads = GmailApp.getInboxThreads();
+  var threads = GmailApp.getInboxThreads(0,1);
   for (var i = 0; i < threads.length; i++) {
     // add code here to ensure the correct email has been selected.  
     // maybe no "re", from Tom, contains "Ref /SK"
-    // read contents and make sure it matches a pattern 
-    // to make sure the right email has been selected
-    if (threads[i].getFrom().indexOf("Tom") > -1){ continue; }
-    if (threads[i].getFirstMessageSubject().indexOf("Ref") > -1) { continue; }
-    if (threads[i].getFirstMessageSubject().indexOf("SK") > -1) { continue; }
-    if (threads[i].getFirstMessageSubject().indexOf("Schedule") > -1) {
-      Logger.log(threads[i].getFirstMessageSubject());
-      Logger.log(threads[i].getFrom());
-      //threads[i].moveToArchive();
-    }
+
+    // unsure if this is needed - what if Bob send schedule??
+    if(GmailApp.getMessageById(tempID).getFrom().indexOf("Tom") > -1) {
+
+      if (threads[i].getFirstMessageSubject().indexOf("Ref") > -1) { 
+        if (threads[i].getFirstMessageSubject().indexOf("SK") > -1) { 
+          if (threads[i].getFirstMessageSubject().indexOf("Schedule") > -1) {
+
+          // read contents and make sure it matches a pattern 
+          // to make sure the right email has been selected
+          //if (threads[i].getFrom().indexOf("Tom") > -1){ continue; }
+            var tempID = threads[i].getId();
+        
+            Logger.log(threads[i].getFirstMessageSubject());
+      
+        }
+      }
+    } 
   }
+}
+   /*
+   **********~*~*Tool Box*~*~***********
   
-  
-  
-  /*
+   threads[i].moveToArchive();
+ 
   // Get the first message in the first thread of your inbox
   var message = GmailApp.getInboxThreads(0, 1)[0].getMessages()[0];
   // Get its ID
