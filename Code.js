@@ -23,14 +23,18 @@ function createEventFromArchEmail() {
     // maybe no "re", from Tom, contains "Ref /SK"
     // read contents and make sure it matches a pattern 
     // to make sure the right email has been selected
+    if (threads[i].getFrom().indexOf("Tom") > -1){ continue }
+    if (threads[i].getFirstMessageSubject().indexOf("Ref") > -1) { continue }
+    if (threads[i].getFirstMessageSubject().indexOf("SK") > -1) { continue }
     if (threads[i].getFirstMessageSubject().indexOf("Schedule") > -1) {
       Logger.log(threads[i].getFirstMessageSubject());
+      //threads[i].moveToArchive();
     }
   }
   
   
   
-  /* 
+  /*
   // Get the first message in the first thread of your inbox
   var message = GmailApp.getInboxThreads(0, 1)[0].getMessages()[0];
   // Get its ID
