@@ -23,11 +23,12 @@ function createEventFromArchEmail() {
     // maybe no "re", from Tom, contains "Ref /SK"
     // read contents and make sure it matches a pattern 
     // to make sure the right email has been selected
-    if (threads[i].getFrom().indexOf("Tom") > -1){ continue }
-    if (threads[i].getFirstMessageSubject().indexOf("Ref") > -1) { continue }
-    if (threads[i].getFirstMessageSubject().indexOf("SK") > -1) { continue }
+    if (threads[i].getFrom().indexOf("Tom") > -1){ continue; }
+    if (threads[i].getFirstMessageSubject().indexOf("Ref") > -1) { continue; }
+    if (threads[i].getFirstMessageSubject().indexOf("SK") > -1) { continue; }
     if (threads[i].getFirstMessageSubject().indexOf("Schedule") > -1) {
       Logger.log(threads[i].getFirstMessageSubject());
+      Logger.log(threads[i].getFrom());
       //threads[i].moveToArchive();
     }
   }
